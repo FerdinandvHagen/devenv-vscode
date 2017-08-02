@@ -6,7 +6,7 @@ WORKDIR /home
 # libasound2:i386 
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
-    apt-get install -y wget libgtk2.0-0:i386 libxtst6:i386 libgconf-2-4:i386 libasound2 libxss1 python && \ 
+    apt-get install -y wget libgtk2.0-0:i386 libxtst6:i386 libgconf-2-4:i386 libasound2 libxss1 python pip && \ 
     wget --quiet -O vscode-amd64.deb https://go.microsoft.com/fwlink/?LinkID=760868 && \
     dpkg -i vscode-amd64.deb; apt-get install -f -y && \
     rm vscode-amd64.deb && \
