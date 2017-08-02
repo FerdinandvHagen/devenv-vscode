@@ -13,6 +13,12 @@ RUN dpkg --add-architecture i386 && \
     rm -rf /var/lib/apt/lists/* && \
     sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/lib/x86_64-linux-gnu/libxcb.so.1
 
+RUN apt-get update && \
+    apt-get install -y locales & \
+    locale-gen en_US.UTF-8 && \
+    update-locale LANG=en_US.UTF_8
+
+
 RUN groupadd -r developer -g 1000 && \
     useradd -u 1000 -r -g developer -d /developer -s /bin/bash -c "Software Developer" developer && \
     mkdir /developer && \
